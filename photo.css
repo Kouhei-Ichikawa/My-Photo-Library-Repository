@@ -1,0 +1,1452 @@
+@charset "Shift-JIS";
+
+/* --------------- 全体の背景・テキスト --------------- */
+body {
+margin: 0;
+padding: 0;
+height: 100%;
+background-color: white; /* 全体の背景色 */
+color: #1f2827; /* 全体の文字色 */
+font-size: 255%; /* 全体の文字サイズ */
+font-family: sans-serif;
+}
+
+/* --------------------- コンテナ --------------------- */
+#container {
+margin: 0 auto; /* センタリング */
+background-color: white; /* コンテナの背景色 */
+}
+
+/* ---------------------- ページ ---------------------- */
+#page {
+width: 750px; /* ページの幅 */
+margin: 0 auto; /* センタリング */
+}
+
+/* --------------------- タイトル --------------------- */
+#title {
+margin: 0;
+padding: 0;
+}
+
+#title h1{
+margin: 0;
+padding: 0 0 0 12px;
+height: 80px;
+font-size: 137%;
+}
+
+#title p{
+margin: 0;
+padding: 0;
+text-align: right;
+font-size: 70%;
+border-bottom: 10px solid #1f2827;
+}
+
+/* --------------------- メニュー ---------------------- */
+#menu {
+margin: 0;
+padding: 0;
+}
+
+/* タブのスイッチ設定 */
+#menu input[type="checkbox"].on-off{
+display: none;
+}
+
+/* 日付検索のタブ */
+#menu label.calendar_tab {
+margin: 0;
+padding: 0 0 0 12px;
+height: 80px;
+background-color: #da2514;
+display: block;
+}
+
+/* お気に入り検索のタブ */
+#menu label.favorite_tab {
+margin: 0;
+padding: 0 0 0 12px;
+height: 80px;
+background: #0175cb;
+display: block;
+border-top: 6px solid #1f2827;
+}
+
+/* 詳細検索のタブ */
+#menu label.detailed_tab {
+margin: 0;
+padding: 0 0 0 12px;
+height: 80px;
+background: #ecda5b;
+display: block;
+border-top: 6px solid #1f2827;
+}
+
+/* メニューの文字列 */
+#menu span{
+margin: 0;
+padding: 0;
+display: table-cell;
+width: inherit;
+height: inherit;
+vertical-align: middle;
+}
+
+/* 日付検索の非表示時設定 */
+#menu input[type="checkbox"].on-off + form.calendar_form{
+height: 0;
+overflow: hidden;
+}
+
+/* 日付検索の表示時設定 */
+#menu input[type="checkbox"].on-off:checked + form.calendar_form{
+height: 515px;
+background: #e8e7e5;
+}
+
+/* お気に入り検索の非表示時設定 */
+#menu input[type="checkbox"].on-off + form.favorite_form{
+height: 0;
+overflow: hidden;
+}
+
+/* お気に入り検索の表示時設定 */
+#menu input[type="checkbox"].on-off:checked + form.favorite_form{
+height: 200px;
+background: #e8e7e5;
+}
+
+/* 詳細検索の非表示時設定 */
+#menu input[type="checkbox"].on-off + form.detailed_form{
+height: 0;
+overflow: hidden;
+}
+
+/* 詳細検索の表示時設定 */
+#menu input[type="checkbox"].on-off:checked + form.detailed_form{
+height: 645px;
+background: #e8e7e5;
+}
+
+/* 検索の項目を表示するフィールド */
+#menu form{
+margin: 0;
+padding: 0;
+/* ↓滑らかにスライドするための設定 */
+-webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-ms-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+
+/* 日付検索のフィールド */
+#calendar {
+margin: 0;
+padding: 0;
+}
+
+/* 日付検索のカレンダー部分(タイトルとボタンの背景) */
+#calendar div.calendar-header{
+margin: 0;
+padding: 0;
+height: 60px;
+}
+
+/* 日付検索のタイトル部分 */
+#calendar div.calendar-header__title{
+margin: 0;
+padding: 0;
+height: 60px;
+width: 322px;
+font-size: 100%;
+display: inline-block;
+text-align: center;
+}
+
+/* 対象月を変更するボタン要素 */
+#menu button.calendar-header_button{
+margin: 0;
+padding: 0;
+width: 107px;
+height: 60px;
+font-size: 100%;
+background-color: #e8e7e5;
+border: 1px solid #e8e7e5;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+/* 以下はボタンを四角くするための設定 */
+-webkit-appearance: none;
+border-radius: 0;
+}
+
+/* 日付検索のカレンダー部分 */
+#calendar table.calendar-table{
+margin: 0;
+padding: 0;
+text-align: center;
+}
+
+/* カレンダーの曜日の部分 */
+#calendar thead tr th{
+margin: 0;
+padding: 0;
+width: 107px;
+height: 60px;
+background-color: #d2d2d2;
+}
+
+/* カレンダーの日付の部分 */
+#calendar tbody tr td{
+margin: 0;
+padding: 0;
+width: 107px;
+height: 60px;
+}
+
+/* カレンダーのボタン */
+#calendar input{
+margin: 0;
+padding: 0;
+width: 107px;
+height: 60px;
+background-color: #d2d2d2;
+vertical-align: top;
+/* 以下はボタンを四角くするための設定 */
+-webkit-appearance: none;
+border-radius: 0;
+}
+
+/* 検索の項目の表 */
+#menu dl{
+margin: 0;
+padding: 0;
+/* border: 1px solid; ガイドの枠線 */
+}
+
+/* 検索の項目名 */
+#menu dt{
+margin: 0;
+padding: 0 5px 0 0;
+width: 225px;
+min-height: 65px;
+font-size: 80%;
+text-align: right;
+float: left;
+clear: left;
+}
+
+/* 検索の項目入力エリア */
+#menu dd{
+margin: 0 0 0 225px;
+padding: 0 0 0 10px;
+min-height: 65px;
+font-size: 80%;
+}
+
+/* 検索の項目入力エリア */
+#menu dd.date_dd{
+margin: 0 0 0 225px;
+padding: 0 0 0 10px;
+height: 185px;
+font-size: 80%;
+}
+
+/* チェックボックスの設定(タブで共通) */
+#menu form input[type="checkbox"]{
+margin: 10px;
+padding: 0;
+vertical-align: middle;
+/* ↓iPhoneでチェックボックスを大きくする設定 */
+-webkit-transform: scale( 2 , 2 );
+}
+
+/* セレクトボックスの設定(タブで共通) */
+#menu form select{
+margin: 0;
+padding: 0;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* セレクトボックスの設定(カメラの選択) */
+#menu select.camera_code{
+margin: 0;
+padding: 0;
+font-size: 100%;
+width: 495px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* リセットボタン(タブで共通) */
+#menu form input[type="reset"]{
+margin: 0;
+padding: 0;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 検索ボタン(タブで共通) */
+#menu form input[type="submit"]{
+margin: 0;
+padding: 0;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* テキストボックスの設定(タブで共通) */
+#menu form input[type="text"]{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 493px;
+height: 45px;
+}
+
+/* 写真のアップロードページのリンク */
+#menu a.upload_page_link{
+margin: 0;
+padding: 0 0 0 12px;
+height: 80px;
+background-color: #e8e7e5;
+display: block;
+border-top: 6px solid #1f2827;
+text-decoration: none;
+}
+
+/* 写真のアップロードページのリンクの文字色 */
+#menu a.upload_page_link:link{
+color: #1f2827;
+}
+#menu a.upload_page_link:visited{
+color: #1f2827;
+}
+
+/* ユーザ設定変更ページのリンク */
+#menu a.user_config_link{
+margin: 0;
+padding: 0 0 0 12px;
+height: 80px;
+background-color: #1f2827;
+display: block;
+border-top: 6px solid #1f2827;
+text-decoration: none;
+}
+
+/* ユーザ設定変更ページのリンク文字色 */
+#menu a.user_config_link:link{
+color: #e8e7e5;
+}
+#menu a.user_config_link:visited{
+color: #e8e7e5;
+}
+
+/* ---------------------- フッター --------------------- */
+#footer {
+margin: 0;
+padding: 0;
+width: 750px;
+background-color: white;
+}
+
+#footer p{
+margin: 0;
+padding: 0;
+height: 60px;
+position: relative;
+}
+
+/* 文字の要素 */
+#footer span{
+margin: 0;
+padding: 0;
+font-size: 70%;
+position: absolute;
+right: 0;
+bottom: 0;
+left: 0;
+text-align: center;
+}
+
+/* 以下はページそれぞれで異なる */
+/* ----------------- トップのスライド ----------------- */
+#top_slide {
+margin: 0;
+padding: 0;
+background-color: #1f2827;
+}
+
+/* 「お気に入り」、「最近の写真」、「ランダム」の文字を入れる要素 */
+#top_slide p {
+margin: 0;
+padding: 0 0 0 12px;
+height: 80px;
+}
+
+/* 「お気に入り」の文字のp要素 */
+#top_slide p.favorite_p{
+background-color: #da2514;
+}
+
+/* 「最近の写真」の文字のp要素 */
+#top_slide p.recently_p{
+background-color: #0175cb;
+}
+
+/* 「ランダム」の文字のp要素 */
+#top_slide p.random_p{
+background-color: #e8e7e5;
+}
+
+/* 文字の要素 */
+#top_slide span{
+margin: 0;
+padding: 0;
+display: table-cell;
+width: inherit;
+height: inherit;
+vertical-align: middle;
+}
+
+/* スライドの背景 */
+.slide_frames{
+margin: 0;
+padding: 0;
+height: 300px;
+background-color: black;
+position: relative; /* 子要素(input)を中央に置くための設定 */
+}
+
+/* スライドの画像兼、表示ページへのリンク */
+.slide_frames input{
+margin: auto; /* autoはinput要素を中央に置くために必要 */
+padding: 0;
+-webkit-appearance: none;
+border-radius: 0;
+/* ↓img要素を中央に置くための設定 */
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+}
+
+/* お気に入りのスライド */
+#favorite_slide{
+margin: 0;
+padding: 0;
+height: 300px;
+}
+
+/* 最近の写真のスライド */
+#recently_slide{
+margin: 0;
+padding: 0;
+height: 300px;
+}
+
+/* ランダムの写真のスライド */
+#random_slide{
+margin: 0;
+padding: 0;
+height: 300px;
+}
+
+/* -------------------- 表示ページ -------------------- */
+#display{
+margin: 0;
+padding: 0;
+background-color: #ecda5b;
+}
+
+/* 表示した写真のタイトル */
+#display .title_field p.photo_title{
+margin: 0;
+padding: 0 0 0 5px;
+width: 554px;
+font-size: 80%;
+display: inline-block;
+float: left;
+border-right: 6px solid #1f2827;
+background-color: white;
+}
+
+/* 表示した写真のお気に入り度 */
+#display .title_field p.stars{
+margin: 0;
+padding: 0;
+width: 185px;
+font-size: 80%;
+float: right;
+display: inline-block;
+text-align: center;
+}
+
+/* 写真を表示させるフィールド */
+#display div.photo_view{
+margin: 0;
+padding: 0;
+width: 750px;
+height: auto;
+clear: both;
+background-color: white;
+text-align: center;
+border-top: 6px solid #1f2827;
+border-bottom: 6px solid #1f2827;
+}
+
+/* 写真 */
+#display div.photo_view img{
+margin: 0;
+padding: 0;
+/* ↓画像の比率をそのままで幅750pxにするための設定 */
+width: 750px;
+height: auto;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* ボタンのフィールド */
+#display .button_field{
+margin: 0;
+padding: 0;
+width: 750px;
+height: 55px;
+background-color: #e8e7e5;
+border-bottom: 6px solid #1f2827;
+}
+
+/* 前へボタンを内包するフォーム要素 */
+#display .button_field form.prev_button{
+margin: 0 215px 0 0;
+padding: 0;
+width: 100px;
+height: 43px;
+display: inline-block;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+border: 6px solid #1f2827;
+}
+
+/* 前へボタン */
+#display .button_field form.prev_button input{
+margin: 0;
+padding: 0;
+width: 100px;
+height: 43px;
+font-size: 80%;
+border: 0;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+-webkit-appearance: none;
+border-radius: 0;
+}
+
+/* スライドショーボタンを内包するフォーム要素 */
+/* 未実装なので隠す */
+#display .button_field form.slide_button{
+margin: 0;
+padding: 0;
+width: 100px;
+height: 36px;
+display: none;
+border: 1px solid; ガイドの枠線
+}
+
+/* スライドショーボタン */
+#display .button_field form.slide_button input{
+margin: 0;
+padding: 0;
+width: 100px;
+height: 36px;
+vertical-align: bottom;インライン要素によって生じる上下の隙間を消す処置
+}
+
+/* 次へボタンを内包するフォーム要素 */
+#display .button_field form.next_button{
+margin: 0;
+padding: 0;
+width: 100px;
+height: 43px;
+float: right;
+clear: right;
+display: inline-block;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+border: 6px solid #1f2827;
+}
+
+/* 次へボタン */
+#display .button_field form.next_button input{
+margin: 0;
+padding: 0;
+width: 100px;
+height: 43px;
+font-size: 80%;
+border: 0;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+-webkit-appearance: none;
+border-radius: 0;
+}
+
+/* 写真の情報を表示するフィールド */
+#display dl.photo_data{
+margin: 0;
+padding: 0;
+font-size: 80%;
+border-bottom: 6px solid #1f2827;
+background-color: white;
+}
+
+/* 写真情報の項目 */
+#display dl.photo_data dt{
+margin: 0;
+padding: 0;
+width: 215px;
+/* 最低の高さを指定記述 */
+min-height: 50px;
+text-align: right;
+float: left;
+clear: left;
+}
+
+/* 写真情報の値 */
+#display dl.photo_data dd{
+margin: 0 0 0 215px;
+padding: 0 0 0 10px;
+/* 最低の高さを指定記述 */
+min-height: 50px;
+height: auto !important;
+height: 36px;
+}
+
+/* 編集ボタンを内包するフォーム */
+#display .button_field form.editing_button{
+margin: 0;
+padding: 0;
+width: 250px;
+height: 43px;
+float: left;
+display: inline-block;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+border: 6px solid #1f2827;
+}
+
+/* 編集ボタン */
+#display .button_field form.editing_button input{
+margin: 0;
+padding: 0;
+width: 250px;
+height: 43px;
+font-size: 80%;
+background-color: #da2514;
+border: 0;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+-webkit-appearance: none;
+border-radius: 0;
+}
+
+/* 戻るボタンを内包するフォーム */
+#display .button_field form.back_button{
+margin: 0;
+padding: 0;
+width: 100px;
+height: 43px;
+float: right;
+display: inline-block;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+border: 6px solid #1f2827;
+}
+
+/* 戻るボタン */
+#display .button_field form.back_button input{
+margin: 0;
+padding: 0;
+width: 100px;
+height: 43px;
+font-size: 80%;
+background-color: #0175cb;
+border: 0;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+-webkit-appearance: none;
+border-radius: 0;
+}
+
+/* フロートを解除するための非表示の線 */
+#display hr{
+margin: 0;
+padding: 0;
+clear: both;
+display: none;
+}
+
+/* --------------------- 検索結果 --------------------- */
+#search_page{
+margin: 0;
+padding: 0;
+}
+
+/* 「検索結果」という文字 */
+#search_page p{
+margin: 0;
+padding: 0 0 0 5px;
+/* width: 614px; */
+font-size: 80%;
+/* float: left; */
+background-color: #e8e7e5;
+}
+
+/* スライドショーボタンを内包するフォーム */
+#search_page form.slide_button{
+/* 未実装なので隠す */
+margin: 0;
+padding: 0;
+height: 36px;
+width: 125px;
+background-color: #e8e7e5;
+float: right;
+letter-spacing: -1em; /* インライン要素によって生じる左右の隙間を消す処置 */
+border: 1px solid; /* ガイドの枠線 */
+display: none;
+}
+
+/* スライドショーボタン */
+#search_page form.slide_button input{
+margin: 0;
+padding: 0;
+height: 36px;
+width: 125px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+border: 1px solid; /* ガイドの枠線 */
+}
+
+/* 検索結果を表示するフィールド */
+#search_results{
+margin: 0;
+padding: 0;
+height: auto;
+width: 750px;
+background-color: #1f2827;
+clear: both;
+border-top: 6px solid #1f2827;
+/* ↓div.back_groundのdisplay:inline-blockによって生じる左右の隙間を消す処置 */
+font-size: 0;
+letter-spacing: -1em;
+}
+
+/* 検索結果の背景 */
+#search_results div.back_ground{
+margin: 0;
+padding: 0;
+height: 300px;
+width: 250px;
+background-color: #1f2827;
+display: inline-block;
+letter-spacing: normal; /* インライン要素によって生じる左右の隙間を消す処置 */
+position: relative; /* 子要素(input)を中央に置くための設定 */
+vertical-align: bottom; /* display:inline-blockで生じる上下の隙間を消す処置 */
+}
+
+/* 検索結果の写真 */
+#search_results div.back_ground input{
+margin: auto; /* autoはinput要素を中央に置くために必要 */
+padding: 0;
+-webkit-appearance: none;
+border-radius: 0;
+/* ↓input要素を中央に置くための設定 */
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+}
+
+/* ページ送りボタンのフィールド */
+#page_change{
+margin: 0;
+padding: 0;
+width: 750px;
+height: 55px;
+background-color: #e8e7e5;
+text-align: center;
+border-bottom: 6px solid #1f2827;
+}
+
+/* ページ送りボタンを内包するフォーム */
+#page_change form{
+margin: 0;
+padding: 0;
+height: 55px;
+display: inline-block;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* ページ送りボタン */
+#page_change button{
+margin: 0;
+padding: 0;
+height: 55px;
+width: 55px;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+font-size: 80%;
+font-weight: bold;
+background-color: #e8e7e5;
+border: 5px solid #1f2827;
+}
+
+/* ページ送りボタン(現在のページ) */
+#page_change button.now_page{
+margin: 0;
+padding: 0;
+height: 55px;
+width: 55px;
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+font-size: 80%;
+color: #e8e7e5;
+font-weight: bold;
+background-color: #1f2827;
+border: 5px solid #1f2827;
+}
+
+/* 戻るボタンを内包するフォーム */
+#search_page form.back_button{
+margin: 0 0 0 621px;
+padding: 0;
+height: 43px;
+display: inline-block;
+border: 6px solid #1f2827;
+position: absolute; /* ページ送りのフィールドの上に重ねるための設定 */
+vertical-align: top; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 戻るボタン */
+#search_page form.back_button input{
+margin: 0;
+padding: 0;
+height: 43px;
+width: 117px;
+font-size: 80%;
+background-color: #e8e7e5;
+border: 0;
+float: right;
+clear: right;
+vertical-align: top;
+-webkit-appearance: none;
+border-radius: 0;
+}
+
+/* -------------------- ユーザ設定 -------------------- */
+/* ユーザ設定 */
+#user_conf{
+margin: 0;
+padding: 0;
+}
+
+/* ユーザ設定の文字 */
+#user_conf p{
+margin: 0;
+padding: 0 0 0 5px;
+font-size: 80%;
+border-bottom: 6px solid #1f2827;
+}
+
+/* フォーム要素 */
+#user_conf form{
+margin: 0;
+padding: 0;
+font-size: 80%;
+border-bottom: 6px solid #1f2827;
+}
+
+/* 項目と値が入る枠 */
+#user_conf dl{
+margin: 0;
+padding: 0;
+}
+
+/* 項目を入れる枠 */
+#user_conf dt{
+margin: 0;
+padding: 0;
+width: 450px;
+height: 65px;
+text-align: right;
+float: left;
+clear: left;
+}
+
+/* 現在のパスワードが違う時の表示 */
+#user_conf dt.password_mismatch{
+padding: 0 0 0 10px;
+color: #da2514;
+text-align: left;
+}
+
+/* 再入力したパスワードが違う時の表示 */
+#user_conf dt.cant_use_pass{
+padding: 0 0 0 10px;
+color: #da2514;
+text-align: left;
+}
+
+/* 値が入る枠 */
+#user_conf dd{
+margin: 0 0 0 450px;
+padding: 0 0 0 10px;
+height: 65px;
+}
+
+/* スライドショーのスピードのプルダウン */
+#user_conf select.slide_speed_select{
+margin: 0;
+padding: 0;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 非表示設定のチェックボックス */
+#user_conf input.secret_status_check{
+margin: 10px;
+padding: 0;
+vertical-align: middle;
+/* ↓iPhoneでチェックボックスを大きくする設定 */
+-webkit-transform: scale( 2 , 2 );
+}
+
+/* パスワード変更のinput要素 */
+#user_conf input[type="password"]{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 250px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 保存と戻るボタン */
+#user_conf button{
+margin: 0;
+padding: 0;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* ---------------- 登録情報編集ページ ---------------- */
+#editing_page{
+margin: 0;
+padding: 0;
+}
+
+#editing_page p{
+margin: 0;
+padding: 0 0 0 10px;
+font-size: 80%;
+}
+
+/* 写真を表示させるフィールド */
+#editing_page div.photo_view{
+margin: 0;
+padding: 0;
+width: 750px;
+height: auto;
+clear: both;
+text-align: center;
+border-top: 6px solid #1f2827;
+border-bottom: 6px solid #1f2827;
+}
+
+/* 写真 */
+#editing_page div.photo_view img{
+margin: 0;
+padding: 0;
+/* ↓画像の比率をそのままで幅750pxにするための設定 */
+width: 750px;
+height: auto;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 情報編集枠とボタンを内包するフォーム */
+#editing_page form.editing_form{
+margin: 0;
+padding: 0;
+font-size: 80%;
+border-bottom: 6px solid #1f2827;
+background-color: white;
+}
+
+/* 情報編集枠 */
+#editing_page dl{
+margin: 0;
+padding: 0;
+}
+
+/* 情報編集枠の項目名 */
+#editing_page dt{
+margin: 0;
+padding: 0;
+width: 215px;
+/* 最低の高さを指定記述 */
+min-height: 65px;
+text-align: right;
+float: left;
+clear: left;
+}
+
+/* 情報編集枠の入力欄 */
+#editing_page dd{
+margin: 0 0 0 215px;
+padding: 0 0 0 10px;
+/* 最低の高さを指定記述 */
+min-height: 65px;
+height: auto !important;
+}
+
+/* 撮影カメラの入力欄 */
+#editing_page dd.camera_select_dd{
+margin: 0 0 0 215px;
+padding: 0 0 0 10px;
+/* 最低の高さを指定記述 */
+min-height: 130px;
+height: auto !important;
+}
+
+/* タイトルを入力するテキストボックス */
+#editing_page input.title_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 493px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 撮影日、非表示フラグを選択するプルダウンメニュー */
+#editing_page form select{
+margin: 0;
+padding: 0;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 番号を入力するテキストボックス */
+#editing_page input.film_number_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 80px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* お気に入り度のラジオボタン */
+#editing_page input.stars_select{
+margin: 10px;
+padding: 0;
+vertical-align: middle;
+/* ↓iPhoneでチェックボックスを大きくする設定 */
+-webkit-transform: scale( 2 , 2 );
+}
+
+/* 既存のカメラ名から選択するプルダウンメニュー */
+#editing_page select.camera_name_select{
+margin: 0;
+padding: 0;
+width: 495px;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 新しいカメラ名を入力するテキストボックス */
+#editing_page input.camera_name_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 493px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* メモを入力するテキストボックス */
+#editing_page input.memo_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 493px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* ボタン要素 */
+#editing_page button{
+margin: 0;
+padding: 0;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* エラーメッセージを表示する要素 */
+#editing_page span.error_message{
+margin: 0;
+padding: 0;
+font-size: 80%;
+color: #da2514;
+border: none;
+}
+
+/* 非表示にする要素の為のクラス */
+#editing_page .passive{
+display: none;
+}
+
+/* ---------------- アップロードページ ---------------- */
+#upload_page {
+margin: 0;
+padding: 0;
+}
+
+/* アップロードの文字 */
+#upload_page p.page_name{
+margin: 0;
+padding: 0 0 0 10px;
+font-size: 80%;
+border-bottom: 6px solid #1f2827;
+}
+
+/* ガイドの記述 */
+#upload_page p.step_p{
+margin: 0;
+padding: 0;
+}
+
+/* ボタン要素 */
+#upload_page button.form_button{
+margin: 0;
+padding: 0;
+font-size: 100%;
+}
+
+/* step1で触る要素を内包するdiv */
+#step1_field{
+margin: 0;
+padding: 0 0 0 10px;
+font-size: 80%;
+border-bottom: 6px solid #1f2827;
+}
+
+/* step1のプルダウンメニュー */
+#step1_field select{
+font-size: 100%;
+}
+
+/* step2で触る要素を内包するdiv */
+#step2_field{
+margin: 0;
+padding: 0;
+font-size: 80%;
+}
+
+/* step2のガイドの記述 */
+#step2_field p.step_p{
+margin: 0 0 0 10px;
+padding: 0;
+border: none;
+}
+
+/* ファイル選択フォームのラベル */
+#step2_field label.file_label{
+margin: 0 0 0 10px;
+padding: 0;
+color: #e8e7e5;
+background-color: #da2514;
+display: inline-block;
+border: 1px solid #1f2827;
+}
+
+/* ファイル選択のフォーム */
+#step2_field input{
+display:none;
+}
+
+/* ファイル選択のinput要素(非表示時) */
+#passive{
+display: none;
+}
+
+/* step2のエラーメッセージを表示するspan要素 */
+#step2_field span.error_message{
+margin: 0 0 0 10px;
+padding: 0;
+color: #da2514;
+}
+
+/* 写真を選択する前のサムネイルを表示するフィールド */
+#passive_thumbnail_field{
+display: none;
+}
+
+/* 選択した写真のサムネイルを表示するフィールド */
+#thumbnail_field{
+margin: 0;
+padding: 0;
+background-color: #1f2827;
+border-bottom: 6px solid #1f2827;
+}
+
+/* サムネイル要素のテンプレートを置くフィールド */
+#thumbnail_template_field{
+display: none;
+}
+
+/* サムネイルの背景 */
+#thumbnail_field div.thumbnail_frames{
+margin: 0;
+padding: 0;
+width: 250px;
+height: 250px;
+background-color: #1f2827;
+position: relative; /* 子要素(button)を中央に置くための設定 */
+display: inline-block;
+letter-spacing: normal; /* インライン要素によって生じる左右の隙間を消す処置 */
+vertical-align: bottom; /* display:inline-blockで生じる上下の隙間を消す処置 */
+}
+
+/* サムネイルのform要素 */
+form.thumbnail_form{
+margin: 0;
+padding: 0;
+}
+
+/* フォームへの選択をするbutton要素 */
+#thumbnail_field button.thumbnail_button{
+/* margin: auto; autoはbutton要素を中央に置くために必要 */
+padding: 0;
+width: 250px;
+height: 250px;
+background-color: #1f2827;
+border: none;
+/* ↓button要素を中央に置くための設定 */
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+}
+
+/* サムネイルの画像 */
+#thumbnail_field button.thumbnail_button img{
+margin: 0;
+padding: 0;
+/* ↓画像の比率をそのままで高さと幅どちらかを220pxにするための設定 */
+width: auto;
+height: auto;
+max-width: 220px;
+max-height: 220px;
+}
+
+/* step3で触る要素を内包するdiv */
+#step3_field{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 750px;
+background-color: white;
+position: fixed;
+bottom: 65px;
+}
+
+/* 浮いているstep3のフォームの下にある要素 */
+#upload_page div.step3_base{
+margin: 0;
+padding: 0;
+height: 745px;
+display: none;
+}
+
+/* step3のガイドの記述 */
+#step3_field p.step_p{
+margin: 0;
+padding: 0 0 0 10px;
+border: none;
+border-top: 6px solid #1f2827;
+}
+
+/* 開始番号の設定フォーム */
+#step3_field form.start_num_form{
+margin: 0 0 5px 10px;
+padding: 0;
+}
+
+/* 開始番号の設定フォーム内のinput */
+#step3_field input.start_num_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 80px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* エラーメッセージを表示するspan要素 */
+#step3_field span.error_message{
+margin: 0;
+padding: 0;
+color: #da2514;
+}
+
+/* 登録情報を入力するフィールド */
+#step3_field div.info_field{
+margin: 0;
+padding: 0;
+border-top: 3px solid #1f2827;
+}
+
+/* フォームのテンプレートを置くフィールド */
+#step3_field div.info_template_field{
+display: none;
+}
+
+/* 情報入力フォーム */
+#step3_field form.info_form{
+margin: 0;
+padding: 0;
+display: none;
+}
+
+/* 情報入力枠 */
+#step3_field dl{
+margin: 0;
+padding: 0;
+}
+
+/* 情報入力枠の項目名 */
+#step3_field dt{
+margin: 0;
+padding: 0;
+width: 215px;
+/* 最低の高さを指定記述 */
+min-height: 65px;
+text-align: right;
+float: left;
+clear: left;
+}
+
+/* 情報入力枠の入力欄 */
+#step3_field dd{
+margin: 0 0 0 215px;
+padding: 0 0 0 10px;
+/* 最低の高さを指定記述 */
+min-height: 65px;
+}
+
+/* 撮影カメラの入力欄 */
+#step3_field dd.camera_select_dd{
+margin: 0 0 0 215px;
+padding: 0 0 0 10px;
+/* 最低の高さを指定記述 */
+min-height: 190px;
+height: auto !important;
+}
+
+/* タイトルを入力するテキストボックス */
+#step3_field input.title_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 493px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 番号を入力するテキストボックス */
+#step3_field input.num_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 80px;
+height: 45px;
+/* vertical-align: bottom; インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* お気に入り度のラジオボタン */
+#step3_field input.stars_select{
+margin: 10px;
+padding: 0;
+vertical-align: middle;
+/* ↓iPhoneでチェックボックスを大きくする設定 */
+-webkit-transform: scale( 2 , 2 );
+}
+
+/* カメラ名の入力方法と非表示フラグを選択するプルダウンメニュー */
+#step3_field select{
+margin: 0;
+padding: 0;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 既存のカメラ名から選択するプルダウンメニュー */
+#step3_field select.camera_name_select{
+margin: 0;
+padding: 0;
+width: 495px;
+font-size: 100%;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 新しいカメラ名を入力するテキストボックス */
+#step3_field input.camera_name_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 493px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* メモを入力するテキストボックス */
+#step3_field input.memo_input{
+margin: 0;
+padding: 0;
+font-size: 80%;
+width: 493px;
+height: 45px;
+vertical-align: bottom; /* インライン要素によって生じる上下の隙間を消す処置 */
+}
+
+/* 非表示にする要素の為のクラス */
+#upload_page .passive{
+display: none;
+}
+
+/* インジケータを表示する要素 */
+#indicator {
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+position: fixed;
+background-color: rgba(255,255,255,0.7);
+display: none;
+}
+
+/* インジケータを表示する要素 */
+/* 親要素はfixedにしているのでimgはこの中で中央に置く */
+#indicator .indicator_base{
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+/* img要素を中央に表示するための設定 */
+position: relative;
+}
+
+/* インジケータのgifアニメーション */
+#indicator .indicator_base img{
+padding: 0;
+/* img要素を中央に表示するための設定 */
+margin: auto;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+}
