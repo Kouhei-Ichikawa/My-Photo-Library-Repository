@@ -130,7 +130,7 @@ $before_camera_code = "";
 $camera_name_sql = "SELECT camera_code,camera_name FROM photo_operation.camera_table WHERE user_name = '" . $_SESSION['user_name'] . "' ORDER BY NLSSORT(camera_name,'NLS_SORT=Japanese')";
 
 //データベースに接続
-$conn = oci_connect("photo_retrieval","mS6EqirX","localhost/IK_Photo_DB");
+$conn = oci_connect("photo_retrieval","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);

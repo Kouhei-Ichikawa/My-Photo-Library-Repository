@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 session_start();
 
 //操作用のユーザでデータベースに接続
-$conn = oci_connect("photo_operation","sZ9KXhF4","localhost/IK_Photo_DB");
+$conn = oci_connect("photo_operation","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);

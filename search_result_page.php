@@ -264,7 +264,7 @@ IF($page_num == 0){
 }
 
 //データベースに接続
-$conn = oci_connect("photo_retrieval","mS6EqirX","localhost/IK_Photo_DB");
+$conn = oci_connect("photo_retrieval","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);

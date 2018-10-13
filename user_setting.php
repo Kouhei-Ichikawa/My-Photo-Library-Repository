@@ -1,6 +1,6 @@
 <?php
 
-//ƒZƒbƒVƒ‡ƒ“‚ÌéŒ¾
+//?Z?b?V?????ÌéŒ¾
 session_start();
 
 $slide_speed = $_POST['slide_speed'];
@@ -9,64 +9,64 @@ $now_password = $_POST['now_password'];
 $new_password = $_POST['new_password'];
 $pass_change_flug = $_POST['pass_change_flug'];
 
-//$secret_status‚Ítrue,false‚Å’l‚ð‚à‚ç‚Á‚Ä‚¢‚é‚Ì‚Åvisible,hidden‚É•Ï‚¦‚é
+//$secret_status?ï¾true,false?Å’l?îãƒ»è½¤ï¾?Ä‚??é©ï¾Œ?ï¾…visible,hidden?É•Ï‚??ãƒ»
 IF($secret_status == "true"){
 	$secret_status = "visible";
 }elseif($secret_status == "false"){
 	$secret_status = "hidden";
 }
 
-//ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±
-$conn = oci_connect("photo_retrieval","mS6EqirX","localhost/IK_Photo_DB");
+//?f?[?^?x?[?X?ÉÚ‘?
+$conn = oci_connect("photo_retrieval","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
   }
 
-//ƒpƒXƒ[ƒh‚ð•ÏX‚·‚é‚©‚Ç‚¤‚©‚Å•ªŠò(update‚Ì•¶‚ª•Ï‚í‚é)
+//?p?X???[?h?î”ï¾?X???é‚©?Ç‚????Å•??ãƒ»update?Ì•????Ï‚å¢²ãƒ»
 IF($pass_change_flug == "true"){
-	//ƒtƒ‰ƒO‚ªtrue‚Ìê‡‚ÍŒ»Ý‚ÌƒpƒXƒ[ƒh‚ðŠm”F‚·‚éˆ×‚Ì–â‚¢‡‚í‚¹‚ðs‚¤
-	//sql•¶‚Ìì¬
+	//?t???O??true?Ìê‡?ÍŒ??Ý‚Ìƒp?X???[?h?î‰m?F???é©¤ï¾—?Ì–â‚¢???í‚¹?îŒs??
+	//sql???Ìì¬
 	$sql = "SELECT password FROM photo_operation.user_table WHERE user_name = '" . $_SESSION['user_name'] . "'";
 
-	//SQL•¶‚ðŽÀs‚µAŽÀsŒ‹‰Ê‚ð$stid‚ÉŠi”[
+	//SQL???îï¾€?s???A?s???Ê‚ãƒ»stid?ÉŠi?[
 	$stid = oci_parse($conn, $sql);
 	oci_execute($stid);
 
-	//ŽÀsŒ‹‰Ê‚Ì”z—ñ‚ð$row‚ÖŠi”[
+	//?s???Ê‚Ì”z?îƒ½ãƒ»row?ÖŠi?[
 	$row = oci_fetch_array($stid, OCI_NUM);
 
-	//Œ»Ý‚ÌƒpƒXƒ[ƒh‚ÆƒtƒH[ƒ€‚Å“ü—Í‚³‚ê‚½ƒpƒXƒ[ƒh‚ªˆê’v‚µ‚Ä‚¢‚é‚©Šm”F‚·‚é
+	//???Ý‚Ìƒp?X???[?h?Æƒt?H?[???Å“ãƒ»ï¾???ê‚½?p?X???[?h???é½Ÿv???Ä‚??é‚©?m?F???ãƒ»
 	IF($row[0] <> $now_password){
-		//ˆê’v‚µ‚È‚©‚Á‚½ê‡‚Í‚±‚±‚Åˆ—I—¹
-		//–ß‚è’l‚Æ‚µ‚Ä"password_mismatch"‚Æ•Ô‚·
+		//?é½Ÿv???È‚??B??ê‡?Í‚????Å????I??
+		//?ß‚é—¥l?Æ‚??ï¾„"password_mismatch"?Æ•Ô‚?
 		exit("password_mismatch");
 
 	}else{
-		//ˆê’v‚µ‚½ê‡‚Íˆ—‚ð‘±s
+		//?é½Ÿv?????ê‡?Í????ð‘±s
 		$sql_parts = "password = '" . $new_password . "', ";
 	}
 }else{
-	//pass_change_flug‚ªfalse(ƒpƒXƒ[ƒh‚ð•ÏX‚µ‚È‚¢)‚Ìê‡‚ÍˆÈ‰º
+	//pass_change_flug??false(?p?X???[?h?î”ï¾?X???È‚?)?Ìê‡?ÍˆÈ‰?
 	$sql_parts = "";
 
 }
 
-//sql•¶‚Ìì¬
+//sql???Ìì¬
 $sql = "UPDATE user_table SET " . $sql_parts . "slide_speed = '" . $slide_speed . "', secret_status = '" . $secret_status . "' WHERE user_name = '" . $_SESSION['user_name'] . "'";
 
-//‘€ì—p‚Ìƒ†[ƒU‚Åƒf[ƒ^ƒx[ƒX‚ÉÚ‘±
-$conn = oci_connect("photo_operation","sZ9KXhF4","localhost/IK_Photo_DB");
+//???ãƒ»p?Ìƒ??[?U?Åƒf?[?^?x?[?X?ÉÚ‘?
+$conn = oci_connect("photo_operation","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
   }
 
-//SQL•¶‚ðŽÀs‚µAŽÀsŒ‹‰Ê‚ð$stid‚ÉŠi”[
+//SQL???îï¾€?s???A?s???Ê‚ãƒ»stid?ÉŠi?[
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
 
-//–ß‚è’l‚Æ‚µ‚Ä"success"‚Æ•Ô‚µ‚Äˆ—I—¹
+//?ß‚é—¥l?Æ‚??ï¾„"success"?Æ•Ô‚??Ä????I??
 echo "success";
 
 ?>

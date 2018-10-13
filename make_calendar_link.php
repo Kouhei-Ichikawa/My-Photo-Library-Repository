@@ -1,35 +1,35 @@
 <?php
 
-//ƒZƒbƒVƒ‡ƒ“‚ÌéŒ¾
+//?Z?b?V?????ÌéŒ¾
 session_start();
 
 $date = $_POST['name1'];
 
-//ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±
-$conn = oci_connect("photo_retrieval","mS6EqirX","localhost/IK_Photo_DB");
+//?f?[?^?x?[?X?ÉÚ‘?
+$conn = oci_connect("photo_retrieval","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
   }
 
-//ƒV[ƒNƒŒƒbƒgƒtƒ‰ƒO‚ª‰B‚·Ý’è‚¾‚Á‚½ê‡ASQL•¶‚Åƒtƒ‰ƒOON‚ÌŽÊ^‚ªƒqƒbƒg‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+//?V?[?N???b?g?t???O???B???Ý’è‚¾?B??ê‡?ASQL???Åƒt???OON?ÌŽÊ^???q?b?g???È‚??æ‚¤?É‚??ãƒ»
 IF($_SESSION['secret_status'] == 'hidden'){
 	$secret_flug = ' AND secret_flug = 0';
 }else{
 	$secret_flug = '';
 }
 
-//sql•¶‚Ìì¬
+//sql???Ìì¬
 $sql = "SELECT COUNT(file_pass) FROM(SELECT * FROM photo_operation.photo_table WHERE filming_date = '" . $date . "' AND user_name = '" . $_SESSION['user_name'] . "'" . $secret_flug . ")";
 
-//SQL•¶‚ðŽÀs‚µAŽÀsŒ‹‰Ê‚ð$stid‚ÉŠi”[
+//SQL???îï¾€?s???A?s???Ê‚ãƒ»stid?ÉŠi?[
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
 
-//ŽÀsŒ‹‰Ê‚Ì”z—ñ‚ð$row‚ÖŠi”[
+//?s???Ê‚Ì”z?îƒ½ãƒ»row?ÖŠi?[
 $row = oci_fetch_array($stid, OCI_NUM);
 
-//Œ‹‰Ê‚ð•\Ž¦(–ß‚è’l‚Æ‚µ‚Äjavascript‚Ö•Ô‚·)
+//???Ê‚î”\??(?ß‚é—¥l?Æ‚??ï¾„javascript?Ö•Ô‚?)
 echo $row[0];
 
 ?>
