@@ -1,6 +1,6 @@
 <?php
 
-//?Z?b?V?????̐錾
+//セッションの宣言
 session_start();
 
 $slide_speed = $_POST['slide_speed'];
@@ -9,64 +9,64 @@ $now_password = $_POST['now_password'];
 $new_password = $_POST['new_password'];
 $pass_change_flug = $_POST['pass_change_flug'];
 
-//$secret_status?ﾍtrue,false?Œl?・轤ﾁ?Ă??驍ﾌ?ﾅvisible,hidden?ɕς??・
+//$secret_statusはtrue,falseで値をもらっているのでvisible,hiddenに変える
 IF($secret_status == "true"){
 	$secret_status = "visible";
 }elseif($secret_status == "false"){
 	$secret_status = "hidden";
 }
 
-//?f?[?^?x?[?X?ɐڑ?
+//データベースに接続
 $conn = oci_connect("photo_retrieval","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
   }
 
-//?p?X???[?h?ﾏ?X???邩?ǂ????ŕ??・update?̕????ς墲・
+//パスワードを変更するかどうかで分岐(updateの文が変わる)
 IF($pass_change_flug == "true"){
-	//?t???O??true?̏ꍇ?͌??݂̃p?X???[?h?m?F???驤ﾗ?̖₢???킹?s??
-	//sql???̍쐬
+	//フラグがtrueの場合は現在のパスワードを確認する為の問い合わせを行う
+	//sql文の作成
 	$sql = "SELECT password FROM photo_operation.user_table WHERE user_name = '" . $_SESSION['user_name'] . "'";
 
-	//SQL???ﾀ?s???A?s???ʂ・stid?Ɋi?[
+	//SQL文を実行し、実行結果を$stidに格納
 	$stid = oci_parse($conn, $sql);
 	oci_execute($stid);
 
-	//?s???ʂ̔z?・row?֊i?[
+	//実行結果の配列を$rowへ格納
 	$row = oci_fetch_array($stid, OCI_NUM);
 
-	//???݂̃p?X???[?h?ƃt?H?[???œ・ﾍ???ꂽ?p?X???[?h???齟v???Ă??邩?m?F???・
+	//現在のパスワードとフォームで入力されたパスワードが一致しているか確認する
 	IF($row[0] <> $now_password){
-		//?齟v???Ȃ??B??ꍇ?͂????ŏ????I??
-		//?߂闥l?Ƃ??ﾄ"password_mismatch"?ƕԂ?
+		//一致しなかった場合はここで処理終了
+		//戻り値として"password_mismatch"と返す
 		exit("password_mismatch");
 
 	}else{
-		//?齟v?????ꍇ?͏????𑱍s
+		//一致した場合は処理を続行
 		$sql_parts = "password = '" . $new_password . "', ";
 	}
 }else{
-	//pass_change_flug??false(?p?X???[?h?ﾏ?X???Ȃ?)?̏ꍇ?͈ȉ?
+	//pass_change_flugがfalse(パスワードを変更しない)の場合は以下
 	$sql_parts = "";
 
 }
 
-//sql???̍쐬
+//sql文の作成
 $sql = "UPDATE user_table SET " . $sql_parts . "slide_speed = '" . $slide_speed . "', secret_status = '" . $secret_status . "' WHERE user_name = '" . $_SESSION['user_name'] . "'";
 
-//???・p?̃??[?U?Ńf?[?^?x?[?X?ɐڑ?
+//操作用のユーザでデータベースに接続
 $conn = oci_connect("photo_operation","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
   }
 
-//SQL???ﾀ?s???A?s???ʂ・stid?Ɋi?[
+//SQL文を実行し、実行結果を$stidに格納
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
 
-//?߂闥l?Ƃ??ﾄ"success"?ƕԂ??ď????I??
+//戻り値として"success"と返して処理終了
 echo "success";
 
 ?>

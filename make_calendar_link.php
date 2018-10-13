@@ -1,35 +1,35 @@
 <?php
 
-//?Z?b?V?????̐錾
+//セッションの宣言
 session_start();
 
 $date = $_POST['name1'];
 
-//?f?[?^?x?[?X?ɐڑ?
+//データベースに接続
 $conn = oci_connect("photo_retrieval","********","localhost/IK_Photo_DB");
   if (!$conn) {
       $e = oci_error();
       trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
   }
 
-//?V?[?N???b?g?t???O???B???ݒ肾?B??ꍇ?ASQL???Ńt???OON?̎ʐ^???q?b?g???Ȃ??悤?ɂ??・
+//シークレットフラグが隠す設定だった場合、SQL文でフラグONの写真がヒットしないようにする
 IF($_SESSION['secret_status'] == 'hidden'){
 	$secret_flug = ' AND secret_flug = 0';
 }else{
 	$secret_flug = '';
 }
 
-//sql???̍쐬
+//sql文の作成
 $sql = "SELECT COUNT(file_pass) FROM(SELECT * FROM photo_operation.photo_table WHERE filming_date = '" . $date . "' AND user_name = '" . $_SESSION['user_name'] . "'" . $secret_flug . ")";
 
-//SQL???ﾀ?s???A?s???ʂ・stid?Ɋi?[
+//SQL文を実行し、実行結果を$stidに格納
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
 
-//?s???ʂ̔z?・row?֊i?[
+//実行結果の配列を$rowへ格納
 $row = oci_fetch_array($stid, OCI_NUM);
 
-//???ʂ\??(?߂闥l?Ƃ??ﾄjavascript?֕Ԃ?)
+//結果を表示(戻り値としてjavascriptへ返す)
 echo $row[0];
 
 ?>
