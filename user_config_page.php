@@ -119,7 +119,7 @@ IF($secret_status == "visible"){
 		<dt>
 			<dd>
 				<button class="user_setting_submit" type="button">保存</button>
-				<button type="button" onclick="history.back()">キャンセル</button>
+				<button type="button" onclick="history.back()">戻る</button>
 			</dd>
 		</dt>
 	</dl>
